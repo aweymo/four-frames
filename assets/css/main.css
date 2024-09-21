@@ -55,6 +55,13 @@ body a:hover {
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: -.02em;
+    white-space: normal; /* Ensure text can wrap */
+}
+
+.brand-text {
+    display: inline-block; /* Allows wrapping */
+    word-wrap: break-word; /* Break text if it's too long */
+    white-space: normal; /* Allow the text to wrap onto the next line */
 }
 
 .nav-link span {
