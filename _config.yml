@@ -1,0 +1,63 @@
+#SITE CONFIGURATION
+
+title: Andrew Weymouth
+description: Digital Initiatives Librarian, Writer
+repository: 
+baseurl: "/base/"
+url: "https://aweymo.github.io"
+
+google_tag_manager: 
+
+# SEO PLUGIN
+
+social:
+  name: Andrew Weymouth
+  links:
+    - https://www.instagram.com/andrewrweymouth/
+    - https://vimeo.com/andrewrainsweymouth
+    - https://www.linkedin.com/in/andrew-weymouth/
+    - https://github.com/aweymo
+    - https://letterboxd.com/aweymo/
+    - https://andrewweymouth.bandcamp.com/
+    
+#THEME SETTINGS
+
+navigation: # Navigation links
+  - {name: 'Home', link: '/'}
+  - {name: 'CV', link: '/cv'}
+  - {name: 'Animation', link: '/animation'}
+  - {name: 'Art and Design', link: '/art'}
+  - {name: 'Audio Docs', link: '/audio'}
+  - {name: 'Field Recording', link: '/field'}
+  - {name: 'Four Frames', link: '/film'}
+  - {name: 'Music', link: '/music'}
+  - {name: 'Subscribe and Contact', link: '/contact'}
+  
+email: andrewrainsweymouth@gmail.com
+github_username: aweymo
+instagram_username: andrewrweymouth
+linkedin_username: andrew-weymouth
+letterboxd_username: aweymo
+vimeo_username: andrewrainsweymouth
+
+#BUILD SETTINGS
+
+markdown: kramdown
+include: ['_pages']
+permalink: /blog/:title
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+compress_html:
+  clippings: all
+
+plugins: 
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+collections:
+  films:
+    output: true
