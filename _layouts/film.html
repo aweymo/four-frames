@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include head.html %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link href="{{ '/assets/css/main.css' | relative_url }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'EB Garamond', serif;
+            color: #212121;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            background-color: #F0F8FF;
+        }
+        body a {
+            color: #00448c;
+        }
+        body a:hover {
+            color: #000;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair', serif;
+            color: #000;
+        }
+        h1, h2 {
+            margin: 1.5rem 0;
+            font-weight: 750;
+            letter-spacing: -.02em;
+        }
+        h3 {
+            font-weight: 600;
+            letter-spacing: -.02em;
+        }
+        .film-entry {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .film-entry .header {
+            margin-bottom: 2rem;
+            font-family: 'Playfair', serif;
+        }
+        .film-entry .header .title {
+            font-size: 1.5rem;
+            font-weight: 750;
+            letter-spacing: -.02em;
+        }
+        .film-entry .header .details {
+            font-size: 1.5rem;
+            font-weight: 750;
+        }
+        .film-entry .body {
+            display: flex;
+            flex-direction: column;
+        }
+        .film-entry .carousel-container {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+        }
+        .carousel-frame {
+            height: 468px;
+            overflow: hidden;
+        }
+        .carousel-inner {
+            height: 100%;
+        }
+        .carousel-control-prev, .carousel-control-next {
+            color: white;
+        }
+        .symbol-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .symbol {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #00448c;
+        }
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+        }
+        .title-main {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .title-main .divider {
+            margin-left: 3rem;
+            margin-right: 0.5rem;
+            font-size: 4rem;
+        }
+        .description-container {
+            margin-top: 1rem;
+            font-size: 1.15rem;
+            text-align: center;
+            color: #000;
+            margin: 2rem auto;
+            width: 90%;
+        }
+        .divider-line {
+            border-top: 1px solid #000;
+            width: 80%;
+            margin: 2rem auto;
+        }
+        .page-up-arrow {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00448c;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 24px;
+            border-radius: 20px;
+        }
+        .page-up-arrow a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .social-links {
+            font-size: 1.5rem;
+            margin-right: 2rem;
+        }
+        .social-links a {
+            color: #00448c;
+        }
+        .social-links a:hover {
+            color: #000;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 1rem;
+            }
+            .title-main {
+                font-size: 1.75rem;
+            }
+            .title-main .divider {
+                font-size: 2rem;
+                margin-left: 1rem;
+                margin-right: 0.5rem;
+            }
+            .film-entry {
+                padding: 1rem;
+            }
+            .film-entry .header .title {
+                font-size: 1.25rem;
+            }
+            .film-entry .header .details {
+                font-size: 1.25rem;
+            }
+            .carousel-frame {
+                height: auto; /* Auto height to adjust with image size */
+            }
+            .description-container {
+                font-size: 1rem;
+                margin: 1rem auto;
+            }
+            .divider-line {
+                width: 90%;
+            }
+            .symbol {
+                font-size: 1.25rem;
+            }
+        }
+    </style>    
+</head>
+<body>
+
+    {% include header.html %}
+
+    <main>
+        <!-- Page title, Description, and Social Links above the content -->
+        <header class="mt-5">
+            <div class="container title-container">
+                <div class="title-main">
+                    <h1>Four Frames <span class="divider">||||</span></h1>
+                </div>
+                <div class="social-links">
+                    <a href="https://letterboxd.com/aweymo/" target="_blank" rel="noopener noreferrer"><i class="fas fa-film"></i></a>
+                </div>
+            </div>
+            <div class="description-container">
+                Four still film reviews by Andrew Weymouth. Media included for educational purposes under fair use.
+                <br>
+                Menu is alphabetical. Entries are chronological.
+            </div>
+        </header>
+
+        <!-- Film Navigation Menu -->
+        {% include film-nav-menu.html %}
+
+        <!-- Film Entries -->
+        <section class="film-entries mt-5">
+            <div class="container">
+                {% assign films = site.films | sort: "date_posted" | reverse %}
+                {% for film in films %}
+                    <div class="film-entry" id="{{ film.title | slugify }}">
+                        <!-- Header with Film Title and Details -->
+                        <div class="header">
+                            <p class="date-posted" style="font-style: italic;">{{ film.date_posted | date: "%B %d, %Y" }}</p>
+                            <h2 class="title">
+                                {{ film.title }} ({{ film.date | date: "%Y" }}) 
+                                <span class="details">Dir. {{ film.director }}, DP. {{ film.cinematographer }}</span>
+                            </h2>
+                        </div>
+                        <!-- Body Section -->
+                        <div class="body">
+                            <!-- Carousel -->
+                            <div class="carousel-container">
+                                {% if film.images %}
+                                    <div id="carousel-{{ forloop.index }}" class="carousel slide carousel-frame" data-interval="false">
+                                        <div class="carousel-inner">
+                                            {% for image in film.images %}
+                                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                                    <a href="{{ '/images/' | append: image.url | relative_url }}" data-lightbox="film-{{ film.title | slugify }}" data-title="{{ film.title }}">
+                                                        <img src="{{ '/images/' | append: image.url | relative_url }}" alt="{{ film.title }}">
+                                                    </a>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carousel-{{ forloop.index }}" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel-{{ forloop.index }}" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <!-- Add the divider line between carousel and text -->
+                            <div class="divider-line"></div>
+                            <!-- Description -->
+                            <div class="description">
+                                {{ film.content | markdownify }}
+                            </div>
+                        </div>
+                        <!-- Separator -->
+                        <div class="symbol-container">
+                            <p class="symbol">&#10042;</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    {% include footer.html %}
+    
+    <!-- Page Up Arrow -->
+    <div class="page-up-arrow">
+        <a href="#top">&#9650;</a>
+      </div>
+    
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>

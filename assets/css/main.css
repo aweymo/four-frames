@@ -1,0 +1,268 @@
+body {
+    font-family: 'EB Garamond', serif;
+    color: #212121;
+    font-size: 1.15rem;
+    line-height: 1.7;  
+}
+
+
+body a {
+    color: #00448c;
+}
+
+body a:hover {
+    color: #000;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair', serif;
+    color: #000;
+}
+
+.h1, .h2, h1, h2 {
+    margin: 1.5rem 0;
+    font-weight: 750;
+    letter-spacing: -.02em;
+}
+
+.h3, h3 {
+    font-weight: 600;
+    letter-spacing: -.02em;
+}
+
+.symbol-container {
+    display: flex;
+    justify-content: space-between; /* Distribute space evenly between items */
+    align-items: center; /* Center the symbols vertically */
+    width: 100%; /* Ensure full width */
+}
+
+.symbol {
+    font-size: 1.5rem;
+    margin: 0; /* Remove default margin */
+    color: #00448c; /* Set the color of the symbols */
+}
+
+.symbol-left,
+.symbol-right {
+    flex: 0; /* Do not grow or shrink */
+}
+
+/* Header */
+
+.navbar-brand {
+    font-family: 'Playfair', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+}
+
+.nav-link span {
+    font-family: 'EB Garamond'
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+/* Default Layout */
+
+.single h1, .single h2, .single h3, .single h4, .single h5, .single h6, .single ol, .single p, .single ul, .single hr {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lead {
+    font-weight: 400;
+}
+
+/* Primary Button */
+
+.btn-primary {
+    background: #00448c;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+}
+
+.btn-primary:hover {
+    background: #000;
+}
+
+/* Big Fucking Red Button */
+
+.button {
+    max-width: 750px;
+    margin: 40px auto;
+}
+
+.big-red-button {
+    padding: 15px 20px;
+    background: #00448c;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+a.big-red-button:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+}
+
+.triangle-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.triangle-list li {
+    position: relative;
+    margin-bottom: 20px; /* Adjust the margin between list items */
+}
+
+.triangle-list li:before {
+    content: '';
+    position: absolute;
+    left: -20px; /* Adjust to match the padding-left value */
+    top: 50%; /* Position the bullet halfway between the link text and the descriptive text */
+    transform: translateY(-50%); /* Center the bullet vertically */
+    width: 12px; /* Adjust the size of the dots */
+    height: 12px; /* Adjust the size of the dots */
+    border-radius: 50%; /* Create a circular shape */
+    background-color: #00448c; /* Set the color of the dots */
+}
+
+.triangle-list li a {
+    font-weight: bold;
+    font-size: 1.3rem; /* Increase font size as needed */
+    margin-left: 15px; /* Move the link text slightly right */
+    display: inline-block; /* Ensure proper indentation of multi-line link text */
+    text-indent: -15px; /* Align multi-line link text with the first line */
+}
+
+.triangle-list li .description {
+    font-size: 1.15rem; /* Adjust the font size as needed */
+    line-height: 1.7; 
+    color: #555; /* Adjust the color of the description text */
+    display: block; /* Ensure the description text is on a new line */
+    margin-top: 5px; /* Add more vertical space between link text and descriptive text */
+    margin-left: 20px; /* Indent the description text further right */
+}
+
+@media (max-width: 768px) {
+    .triangle-list li:before {
+        left: -10px; /* Adjust the position of the bullets for mobile devices */
+    }
+    
+    .triangle-list li a {
+        margin-left: 10px; /* Adjust the position of the link text for mobile devices */
+        text-indent: -10px; /* Align multi-line link text with the first line for mobile devices */
+    }
+    
+    .triangle-list li .description {
+        margin-left: 15px; /* Adjust the position of the descriptive text for mobile devices */
+    }
+}
+
+.page-up-arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00448c;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    border-radius: 20px;
+}
+
+.page-up-arrow a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.iframe-container {
+    margin-bottom: 40px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .iframe-container iframe {
+    width: 100%;
+    height: 500px; /* Adjust the height as needed */
+  }
+  .social-links {
+    display: flex;
+    justify-content: center; /* Adjust as needed */
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  .social-links a {
+    color: #333; /* Adjust the color as needed */
+    font-size: 24px; /* Adjust the font size as needed */
+    margin: 0 10px; /* Adjust the spacing between icons */
+  }
+  
+  .social-links a:hover {
+    color: #00448c; /* Adjust the hover color as needed */
+  }
+
+  .subscription-section {
+    margin-top: 40px; /* Adds space above the subscription section */
+    margin-bottom: 60px; /* Increase space below the section */
+    padding: 20px;
+    background-color: #F0F8FF; /* Background color for the section */
+    border: 1px solid #CCC; /* Border to define the section */
+    border-radius: 8px; /* Rounded corners for the section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a clean look */
+    max-width: 600px; /* Max width to keep it from getting too wide */
+    margin-left: 0; /* Align to the left */
+    margin-right: auto; /* Center-align to the right */
+    text-align: left; /* Align text to the left */
+}
+
+.subscription-section h2 {
+    font-family: 'Playfair', serif;
+    font-size: 1.75rem; /* Adjust as needed */
+    color: #000; /* Match color with your theme */
+    margin-bottom: 10px;
+}
+
+.subscription-section p {
+    font-size: 1.15rem;
+    color: #555; /* Slightly darker color for the text */
+    margin-bottom: 20px;
+}
+
+.subscription-section iframe {
+    width: 100%; /* Make iframe responsive */
+    height: auto; /* Adjust height proportionally */
+    max-width: 300px; /* Max width for the iframe */
+    border: none; /* Remove default border */
+}
+  
+  .caption {
+  text-align: center;
+}
+
+.media {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+  }
+  
+  .media iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    background-color: #F0F8FF;
+}

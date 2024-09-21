@@ -1,62 +1,30 @@
-#SITE CONFIGURATION
+# SITE CONFIGURATION
 
-title: Andrew Weymouth
-description: Digital Initiatives Librarian, Writer
-repository: 
-baseurl: "/base/"
-url: "https://aweymo.github.io"
+title: Four Frames by Andrew Weymouth
+description: A collection of four-frame film analyses by Andrew Weymouth
+repository: ""  # Add a URL or keep it empty as needed
+baseurl: "/four-frames/"
+url: "https://aweymo.github.io/"
 
-google_tag_manager: 
+google_tag_manager: ""  # Add your GTM ID or keep it empty as needed
 
-# SEO PLUGIN
+# THEME SETTINGS
 
-social:
-  name: Andrew Weymouth
-  links:
-    - https://www.instagram.com/andrewrweymouth/
-    - https://vimeo.com/andrewrainsweymouth
-    - https://www.linkedin.com/in/andrew-weymouth/
-    - https://github.com/aweymo
-    - https://letterboxd.com/aweymo/
-    - https://andrewweymouth.bandcamp.com/
-    
-#THEME SETTINGS
+navigation:  # Navigation links
+  - {name: 'Home', link: 'https://aweymo.github.io/base'}
+  - {name: 'CV', link: 'https://aweymo.github.io/base/cv'}
+  - {name: 'Animation', link: 'https://aweymo.github.io/base/animation'}
+  - {name: 'Art and Design', link: 'https://aweymo.github.io/base/art'}
+  - {name: 'Audio Docs', link: 'https://aweymo.github.io/base/audio'}
+  - {name: 'Field Recording', link: 'https://aweymo.github.io/base/field'}
+  - {name: 'Four Frames', link: 'https://aweymo.github.io/four-frames'}
+  - {name: 'Music', link: 'https://aweymo.github.io/base/music'}
+  - {name: 'Subscribe and Contact', link: 'https://aweymo.github.io/base/contact'}
 
-navigation: # Navigation links
-  - {name: 'Home', link: '/'}
-  - {name: 'CV', link: '/cv'}
-  - {name: 'Animation', link: '/animation'}
-  - {name: 'Art and Design', link: '/art'}
-  - {name: 'Audio Docs', link: '/audio'}
-  - {name: 'Field Recording', link: '/field'}
-  - {name: 'Four Frames', link: '/film'}
-  - {name: 'Music', link: '/music'}
-  - {name: 'Subscribe and Contact', link: '/contact'}
-  
 email: andrewrainsweymouth@gmail.com
 github_username: aweymo
-instagram_username: andrewrweymouth
-linkedin_username: andrew-weymouth
-letterboxd_username: aweymo
-vimeo_username: andrewrainsweymouth
 
-#BUILD SETTINGS
-
-markdown: kramdown
-include: ['_pages']
-permalink: /blog/:title
-
-exclude:
-  - README.md
-  - Gemfile
-  - Gemfile.lock
-
-compress_html:
-  clippings: all
-
-plugins: 
-  - jekyll-sitemap
-  - jekyll-seo-tag
+plugins: []
 
 collections:
   films:

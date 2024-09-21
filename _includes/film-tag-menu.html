@@ -1,0 +1,65 @@
+{%- comment -%}
+    Film Tag Menu include,
+    add a basic nav for tags at top of Film pages.
+
+    E.G. --> {% include film-tag-menu.html %}
+{%- endcomment -%}
+
+{% assign tags = site.tags | sort: "name" %}
+
+<nav class="film-tag-menu sticky-top">
+    <div class="container">
+        <div class="film-tag-content">
+            <p class="h6 mb-0">
+                Tags:
+                {% for tag in tags %}
+                    <a class="mx-2" href="?tag={{ tag[0] | url_encode }}">{{ tag[0] }}</a>
+                    {% unless forloop.last %}| {% endunless %}
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .film-tag-menu {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .film-tag-menu .container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 960px; /* Ensure this matches or is slightly less than .film-entry width */
+    }
+
+    .film-tag-content {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0; /* Add border to match styling */
+        padding: 0.5rem 1rem; /* Adjust padding as needed */
+        display: flex;
+        justify-content: flex-start; /* Aligns content to the left */
+    }
+    
+    .film-tag-content .h6 {
+        margin: 0;
+        font-family: 'Playfair', serif;
+        font-size: 1rem;
+    }
+    
+    .film-tag-content a {
+        color: #00448c;
+        text-decoration: none;
+    }
+    
+    .film-tag-content a:hover {
+        text-decoration: underline;
+    }
+    
+    .film-tag-content p {
+        margin-bottom: 0;
+    }
+</style>
